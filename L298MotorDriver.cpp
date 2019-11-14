@@ -9,12 +9,14 @@ L298MotorDriver::L298MotorDriver(int pinI1, int pinI2, int pinEA, int pinI3, int
   _motorB->setReverse(true);
 }
 
-/* Used to mix both the steering and the speed of both Motor A and B */
-void L298MotorDriver::changeVector(int x, int y) {
-  int _x = map(x, 1087, 1895, -255, 255);
-  int _y = map(y, 1087, 1895, -255, 255);
-  _motorA->changeSpeed(_x + _y);
-  _motorB->changeSpeed(_x - _y);
+/* Sets the PWM of the left motor */
+void L298MotorDriver::setLeftMotor(int pwm) {
+  _motorA->changeSpeed(pwm);
+}
+
+/* Sets the PWM of the right motor */
+void L298MotorDriver::setRightMotor(int pwm) {
+  _motorB->changeSpeed(pwm);
 }
 
 /* Causes both A and B motors to brake */
@@ -22,4 +24,3 @@ void L298MotorDriver::setBrake() {
   _motorA->setBrake();
   _motorB->setBrake();
 }
-

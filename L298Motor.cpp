@@ -55,7 +55,7 @@ void L298Motor::changeDirection(int speed) {
 
 /* Private function */
 void L298Motor::setSpeed(int speed) {
-  int absSpeed = constrain(abs(speed), 0, 255);
+  int absSpeed = abs(speed);
   analogWrite(_pinE, absSpeed);
   _speed = speed;
   delay(DELAY);
@@ -72,4 +72,3 @@ void L298Motor::moveBackward() {
   digitalWrite(_pin1, HIGH);
   digitalWrite(_pin2, LOW);
 }
-

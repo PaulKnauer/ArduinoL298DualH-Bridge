@@ -7,7 +7,8 @@
 class L298MotorDriver {
 public:
   L298MotorDriver(int pinI1, int pinI2, int pinEA, int pinI3, int pinI4, int pinEB);
-  void changeVector(int x, int y);
+  void setLeftMotor(int pwm);
+  void setRightMotor(int pwm);
   void setBrake();
 private:
   L298Motor *_motorA;
@@ -15,4 +16,3 @@ private:
 };
 
 #endif
-
