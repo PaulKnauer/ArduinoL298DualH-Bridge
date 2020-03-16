@@ -2,7 +2,7 @@
 #include "RcMixer.h"
 
 L298MotorDriver l298(8, 9, 10, 13, 12, 11);
-RcMixer mixer(10, 11);
+RcMixer mixer(4, 7);
 
 void setup() {
   Serial.begin(115200);
